@@ -38,37 +38,44 @@
           <label for="market">Rynek:</label>
           <select class="form-control" id="market" name="market" required>
             <option value="0">Wybierz</option>
-            <option value="1">Pierwotny</option>
-            <option value="2">Wtórny</option>
+            <option value="0">Pierwotny</option>
+            <option value="1">Wtórny</option>
           </select>
         </div>
         <div class="col-md-3 mb-3">
           <label for="finishing_state">Stan wykończenia:</label>
           <select class="form-control" id="finishing_state" name="finishing_state" required>
             <option value="0">Wybierz</option>
-            <option value="1">Do remontu</option>
-            <option value="2">Do odświeżenia</option>
-            <option value="3">Po odświeżeniu</option>
-            <option value="4">Stan idealny</option>
+            <option value="0">Do remontu</option>
+            <option value="1">Do wykończenia</option>
+            <option value="2">Do zamieszkania</option>
           </select>
         </div>
         <div class="col-md-3 mb-3">
           <label for="building_type">Typ budynku:</label>
           <select class="form-control" id="building_type" name="building_type" required>
             <option value="0">Wybierz</option>
-            <option value="1">Bloku</option>
-            <option value="2">Domu jednorodzinnego</option>
-            <option value="3">Apartamentowca</option>
+            <option value="0">Apartamentowiec</option>
+            <option value="1">Blok</option>
+            <option value="2">Dom wolnostojący</option>
+            <option value="3">Kamienica</option>
+            <option value="4">Plomba</option>
+            <option value="5">Szeregowiec</option>
+
           </select>
         </div>
         <div class="col-md-3 mb-3">
           <label for="district">Dzielnica:</label>
           <select class="form-control" id="district" name="district" required>
             <option value="0">Wybierz</option>
-            <option value="1">Śródmieście</option>
-            <option value="2">Mokotów</option>
-            <option value="3">Ursynów</option>
-            <option value="4">Żoliborz</option>
+            <option value="0">Grunwald</option>
+            <option value="1">Jeżyce</option>
+            <option value="2">Piątkowo</option>
+            <option value="3">Rataje</option>
+            <option value="4">Stare Miasto</option>
+            <option value="5">Wilda</option>
+            <option value="6">Winogrady</option>
+            <option value="7">Łazarz</option>
           </select>
         </div>
         <div class="col text-center">
@@ -103,11 +110,11 @@
 
         $.ajax({
           type: 'POST',
-          url: 'https://apartament-price-finder-2136d56133d3.herokuapp.com/items/',
+          url: 'https://apartament-price-finder-2136d56133d3.herokuapp.com/api/price',
           data: JSON.stringify(formData),
           contentType: 'application/json',
           success: function(response) {
-            $('#response').html('<div class="alert alert-success price"><h3>Cena: ' + response.price + '</h3></div>');
+            $('#response').html('<div class="alert alert-success price"><h3>Cena: ' + response.price + ' PLN</h3></div>');
           },
           error: function(error) {
             $('#response').html('<div class="alert alert-danger">Wystąpił błąd: ' + error.responseText + '</div>');

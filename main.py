@@ -28,7 +28,7 @@ app.add_middleware(
     allow_headers=["*"],  # Zazwól na wszystkie nagłówki HTTP
 )
 
-@app.post("/items/")
+@app.post("/api/price")
 async def create_item(item: Item):
     data_to_predict = [
         [
