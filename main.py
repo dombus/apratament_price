@@ -4,7 +4,7 @@ import pickle
 import json
 
 
-pickled_model = pickle.load(open('MLPRegressor_trained_model.obj', 'rb'))
+pickled_model = pickle.load(open('MLPRegressor_trained_model2.obj', 'rb'))
 
 class Item(BaseModel):
     area: float
