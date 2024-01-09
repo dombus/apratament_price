@@ -1,63 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Aplikacja do wysyłania JSONa</title>
+  <title>Aplikacja do wysyłania JSONa z Bootstrapem</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
-  <h1>Aplikacja do wysyłania JSONa</h1>
+  <div class="container mt-5">
+    <div class="row header-title">
+      <div class="col">
+        <img src="logo.png" alt="Logo" />
+      </div>
+    </div>
 
-  <form id="jsonForm">
-    <label for="area">Powierzchnia:</label>
-    <input type="number" id="area" name="area" required><br><br>
+    <form id="jsonForm">
+      <div class="row mainapp">
+        <div class="col-md-3 mb-3">
+          <label for="area">Powierzchnia:</label>
+          <input type="number" class="form-control" id="area" name="area" required>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="num_rooms">Liczba pokoi:</label>
+          <input type="number" class="form-control" id="num_rooms" name="num_rooms" required>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="floor">Piętro:</label>
+          <input type="number" class="form-control" id="floor" name="floor" required>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="year_built">Rok budowy:</label>
+          <input type="number" class="form-control" id="year_built" name="year_built" required>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="market">Rynek:</label>
+          <select class="form-control" id="market" name="market" required>
+            <option value="0">Wybierz</option>
+            <option value="1">Pierwotny</option>
+            <option value="2">Wtórny</option>
+          </select>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="finishing_state">Stan wykończenia:</label>
+          <select class="form-control" id="finishing_state" name="finishing_state" required>
+            <option value="0">Wybierz</option>
+            <option value="1">Do remontu</option>
+            <option value="2">Do odświeżenia</option>
+            <option value="3">Po odświeżeniu</option>
+            <option value="4">Stan idealny</option>
+          </select>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="building_type">Typ budynku:</label>
+          <select class="form-control" id="building_type" name="building_type" required>
+            <option value="0">Wybierz</option>
+            <option value="1">Bloku</option>
+            <option value="2">Domu jednorodzinnego</option>
+            <option value="3">Apartamentowca</option>
+          </select>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="district">Dzielnica:</label>
+          <select class="form-control" id="district" name="district" required>
+            <option value="0">Wybierz</option>
+            <option value="1">Śródmieście</option>
+            <option value="2">Mokotów</option>
+            <option value="3">Ursynów</option>
+            <option value="4">Żoliborz</option>
+          </select>
+        </div>
+        <div class="col text-center">
+          <button type="submit" class="btn btn-primary mt-3 btn-lg">CHECK <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search-heart" viewBox="0 0 16 16">
+          <path d="M6.5 4.482c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018"/>
+          <path d="M13 6.5a6.47 6.47 0 0 1-1.258 3.844q.06.044.115.098l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1-.1-.115h.002A6.5 6.5 0 1 1 13 6.5M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11"/>
+          </svg></i></button>
+        </div>
+      </form>
+      </div>
 
-    <label for="num_rooms">Liczba pokoi:</label>
-    <input type="number" id="num_rooms" name="num_rooms" required><br><br>
 
-    <label for="floor">Piętro:</label>
-    <input type="number" id="floor" name="floor" required><br><br>
 
-    <label for="year_built">Rok budowy:</label>
-    <input type="number" id="year_built" name="year_built" required><br><br>
-
-    <label for="market">Rynek:</label>
-    <select id="market" name="market" required>
-      <option value="0">Wybierz</option>
-      <option value="1">Pierwotny</option>
-      <option value="2">Wtórny</option>
-    </select><br><br>
-
-    <label for="finishing_state">Stan wykończenia:</label>
-    <select id="finishing_state" name="finishing_state" required>
-      <option value="0">Wybierz</option>
-      <option value="1">Do remontu</option>
-      <option value="2">Do odświeżenia</option>
-      <option value="3">Po odświeżeniu</option>
-      <option value="4">Stan idealny</option>
-    </select><br><br>
-
-    <label for="building_type">Typ budynku:</label>
-    <select id="building_type" name="building_type" required>
-      <option value="0">Wybierz</option>
-      <option value="1">Bloku</option>
-      <option value="2">Domu jednorodzinnego</option>
-      <option value="3">Apartamentowca</option>
-    </select><br><br>
-
-    <label for="district">Dzielnica:</label>
-    <select id="district" name="district" required>
-      <option value="0">Wybierz</option>
-      <option value="1">Śródmieście</option>
-      <option value="2">Mokotów</option>
-      <option value="3">Ursynów</option>
-      <option value="4">Żoliborz</option>
-    </select><br><br>
-
-    <input type="submit" value="Wyślij">
-  </form>
-
-  <div id="response"></div>
+    <div id="response" class="mt-4 text-center"></div>
+  </div>
 
   <script>
     $(document).ready(function() {
@@ -81,14 +107,16 @@
           data: JSON.stringify(formData),
           contentType: 'application/json',
           success: function(response) {
-            $('#response').html('Cena: ' + response.price);
+            $('#response').html('<div class="alert alert-success price"><h3>Cena: ' + response.price + '</h3></div>');
           },
           error: function(error) {
-            $('#response').html('Wystąpił błąd: ' + error.responseText);
+            $('#response').html('<div class="alert alert-danger">Wystąpił błąd: ' + error.responseText + '</div>');
           }
         });
       });
     });
   </script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

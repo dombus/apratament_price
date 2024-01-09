@@ -45,7 +45,7 @@ async def create_item(item: Item):
     predict = pickled_model.predict(data_to_predict)
 
     predict_return = {
-        'price' : predict[0]
+        'price' : int(predict[0])
         }
 
     return predict_return

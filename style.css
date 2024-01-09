@@ -1,0 +1,25 @@
+body {
+  background: #DCF2F1;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #365486 !important;
+    border-radius: 40px;
+    border: none;
+}
+
+
+.header-title img {
+  height: 100px;
+
+}
+
+.header-title {
+  padding-bottom: 40px;
+}
+
+.mainapp {
+  background: #7FC7D9;
+  border-radius: 20px;
+  padding: 20px;
+}
