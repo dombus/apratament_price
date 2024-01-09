@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
 import pickle
 import json
 
@@ -18,6 +19,14 @@ class Item(BaseModel):
 
 app = FastAPI()
 
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Zazwól na dostęp z dowolnej domeny (* oznacza wszystkie)
+    allow_credentials=True,
+    allow_methods=["*"],  # Zazwól na wszystkie metody HTTP
+    allow_headers=["*"],  # Zazwól na wszystkie nagłówki HTTP
+)
 
 @app.post("/items/")
 async def create_item(item: Item):
