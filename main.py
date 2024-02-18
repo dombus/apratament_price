@@ -17,6 +17,7 @@ class Item(BaseModel):
     finishing_state: int
     building_type: int
     district: int
+    seller_price: int
 
 app = FastAPI()
 
