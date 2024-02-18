@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Aplikacja do wysyłania JSONa z Bootstrapem</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Apartament Price Finder</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
-  <div class="container mt-5">
+  <div class="container px-3">
     <div class="row header-title">
       <div class="col">
         <img src="logo.png" alt="Logo" />
@@ -17,80 +20,96 @@
     </div>
 
     <form id="jsonForm">
-      <div class="row mainapp">
-        <div class="col-md-3 mb-3">
-          <label for="area">Powierzchnia:</label>
-          <input type="number" class="form-control" id="area" name="area" required>
-        </div>
-        <div class="col-md-3 mb-3">
-          <label for="num_rooms">Liczba pokoi:</label>
-          <input type="number" class="form-control" id="num_rooms" name="num_rooms" required>
-        </div>
-        <div class="col-md-3 mb-3">
-          <label for="floor">Piętro:</label>
-          <input type="number" class="form-control" id="floor" name="floor" required>
-        </div>
-        <div class="col-md-3 mb-3">
-          <label for="year_built">Rok budowy:</label>
-          <input type="number" class="form-control" id="year_built" name="year_built" required>
-        </div>
-        <div class="col-md-3 mb-3">
-          <label for="market">Rynek:</label>
-          <select class="form-control" id="market" name="market" required>
-            <option value="0">Wybierz</option>
-            <option value="0">Pierwotny</option>
-            <option value="1">Wtórny</option>
-          </select>
-        </div>
-        <div class="col-md-3 mb-3">
-          <label for="finishing_state">Stan wykończenia:</label>
-          <select class="form-control" id="finishing_state" name="finishing_state" required>
-            <option value="0">Wybierz</option>
-            <option value="0">Do remontu</option>
-            <option value="1">Do wykończenia</option>
-            <option value="2">Do zamieszkania</option>
-          </select>
-        </div>
-        <div class="col-md-3 mb-3">
-          <label for="building_type">Typ budynku:</label>
-          <select class="form-control" id="building_type" name="building_type" required>
-            <option value="0">Wybierz</option>
-            <option value="0">Apartamentowiec</option>
-            <option value="1">Blok</option>
-            <option value="2">Dom wolnostojący</option>
-            <option value="3">Kamienica</option>
-            <option value="4">Plomba</option>
-            <option value="5">Szeregowiec</option>
+      <div class="mainapp row">
+       <div class="col-12 col-md-3 pb-3">
+         <label for="area">Powierzchnia:</label>
+         <input type="number" class="form-control" id="area" name="area" required>
+       </div>
+       <div class="col-12 col-md-3 pb-3">
+         <label for="num_rooms">Liczba pokoi:</label>
+         <input type="number" class="form-control" id="num_rooms" name="num_rooms" required>
+       </div>
+       <div class="col-12 col-md-3 pb-3">
+         <label for="floor">Piętro:</label>
+         <input type="number" class="form-control" id="floor" name="floor" required>
+       </div>
+       <div class="col-12 col-md-3">
+         <label for="year_built">Rok budowy:</label>
+         <input type="number" class="form-control" id="year_built" name="year_built" required>
+       </div>
 
-          </select>
-        </div>
-        <div class="col-md-3 mb-3">
-          <label for="district">Dzielnica:</label>
-          <select class="form-control" id="district" name="district" required>
-            <option value="0">Wybierz</option>
-            <option value="0">Grunwald</option>
-            <option value="1">Jeżyce</option>
-            <option value="2">Piątkowo</option>
-            <option value="3">Rataje</option>
-            <option value="4">Stare Miasto</option>
-            <option value="5">Wilda</option>
-            <option value="6">Winogrady</option>
-            <option value="7">Łazarz</option>
-          </select>
-        </div>
-        <div class="col text-center">
-          <button type="submit" class="btn btn-primary mt-3 btn-lg">CHECK <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search-heart" viewBox="0 0 16 16">
-          <path d="M6.5 4.482c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018"/>
-          <path d="M13 6.5a6.47 6.47 0 0 1-1.258 3.844q.06.044.115.098l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1-.1-.115h.002A6.5 6.5 0 1 1 13 6.5M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11"/>
-          </svg></i></button>
-        </div>
-      </form>
-      </div>
+       <div class="col-12 col-md-3 pb-3">
+         <label for="market">Rynek:</label>
+         <select class="form-control" id="market" name="market" required>
+           <option value="0">Wybierz</option>
+           <option value="0">Pierwotny</option>
+           <option value="1">Wtórny</option>
+         </select>
+       </div>
+       <div class="col-12 col-md-3 pb-3">
+         <label for="finishing_state">Stan wykończenia:</label>
+         <select class="form-control" id="finishing_state" name="finishing_state" required>
+           <option value="0">Wybierz</option>
+           <option value="0">Do remontu</option>
+           <option value="1">Do wykończenia</option>
+           <option value="2">Do zamieszkania</option>
+         </select>
+       </div>
 
+       <div class="col-12 col-md-3 pb-3">
+         <label for="building_type">Typ budynku:</label>
+         <select class="form-control" id="building_type" name="building_type" required>
+           <option value="0">Wybierz</option>
+           <option value="0">Apartamentowiec</option>
+           <option value="1">Blok</option>
+           <option value="2">Dom wolnostojący</option>
+           <option value="3">Kamienica</option>
+           <option value="4">Plomba</option>
+           <option value="5">Szeregowiec</option>
+         </select>
+       </div>
+
+       <div class="col-12 col-md-3 pb-3">
+         <label for="district">Dzielnica:</label>
+         <select class="form-control" id="district" name="district" required>
+           <option value="0">Wybierz</option>
+           <option value="0">Grunwald</option>
+           <option value="1">Jeżyce</option>
+           <option value="2">Piątkowo</option>
+           <option value="3">Rataje</option>
+           <option value="4">Stare Miasto</option>
+           <option value="5">Wilda</option>
+           <option value="6">Winogrady</option>
+           <option value="7">Łazarz</option>
+         </select>
+       </div>
+
+       <div class="col text-center pb-3">
+         <button type="submit" class="btn btn-primary mt-3 btn-lg">CHECK <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search-heart" viewBox="0 0 16 16">
+           <path d="M6.5 4.482c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018"/>
+           <path d="M13 6.5a6.47 6.47 0 0 1-1.258 3.844q.06.044.115.098l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1-.1-.115h.002A6.5 6.5 0 1 1 13 6.5M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11"/>
+         </svg></button>
+       </div>
+
+    </div>
+     </form>
 
 
     <div id="response" class="mt-4 text-center"></div>
   </div>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="line"></div>
+            <div class="text-center">
+              <p><a href="https://dombek.pl">dombek.pl</a> and AronB.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  </footer>
 
   <script>
     $(document).ready(function() {
@@ -124,6 +143,6 @@
     });
   </script>
 
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

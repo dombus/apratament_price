@@ -5,9 +5,10 @@ import pickle
 import json
 
 
-pickled_model = pickle.load(open('MLPRegressor_trained_model2.obj', 'rb'))
+pickled_model = pickle.load(open('MLPRegressor_trained_model.obj', 'rb'))
 
 class Item(BaseModel):
+    seller_price: int
     area: float
     num_rooms: int
     floor: int
@@ -29,7 +30,8 @@ app.add_middleware(
 )
 
 @app.post("/api/price")
-async def create_item(item: Item):
+#async
+def create_item(item: Item):
     data_to_predict = [
         [
             item.area,
@@ -44,8 +46,18 @@ async def create_item(item: Item):
     ]
     predict = pickled_model.predict(data_to_predict)
 
+
+    comment = None
+    if item.seller_price > int(predict[0]):
+        comment = 'Nie opłaca się kupić.'
+
+    else:
+        comment = 'Opłaca się kupić.'
+
     predict_return = {
-        'price' : int(predict[0])
-        }
+        'seller_price' : item.seller_price,
+        'predicted_price' : int(predict[0]),
+        'comment' : comment
+     }
 
     return predict_return
